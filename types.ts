@@ -35,7 +35,7 @@ export interface Resource {
   title: string;
   description: string;
   type: 'Report' | 'Template' | 'Guide' | 'Presentation';
-  format: 'PDF' | 'DOCX' | 'PPTX' | 'XLSX';
+  format: 'PDF' | 'DOCX' | 'PPTX' | 'XLSX' | 'WEB';
   size: string;
   downloadUrl: string;
   dateAdded: Date;

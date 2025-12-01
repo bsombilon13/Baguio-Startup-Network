@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { MOCK_RESOURCES } from '../constants';
-import { FileText, Download, File, Presentation, Search } from 'lucide-react';
+import { FileText, Download, File, Presentation, Search, Globe } from 'lucide-react';
 
 const Resources: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -19,6 +19,7 @@ const Resources: React.FC = () => {
       case 'PDF': return <FileText className="w-6 h-6 text-red-500" />;
       case 'DOCX': return <File className="w-6 h-6 text-blue-500" />;
       case 'PPTX': return <Presentation className="w-6 h-6 text-orange-500" />;
+      case 'WEB': return <Globe className="w-6 h-6 text-brand-accent" />;
       default: return <File className="w-6 h-6 text-slate-500" />;
     }
   };
@@ -89,9 +90,11 @@ const Resources: React.FC = () => {
               </div>
               <a 
                 href={resource.downloadUrl} 
+                target={resource.format === 'WEB' ? '_blank' : '_self'}
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm font-bold text-brand-accent hover:text-brand-accent/80 transition-colors bg-brand-accent/5 px-3 py-1.5 rounded-lg hover:bg-brand-accent/10"
               >
-                Download <Download className="w-4 h-4" />
+                {resource.format === 'WEB' ? 'View' : 'Download'} <Download className="w-4 h-4" />
               </a>
             </div>
           </div>

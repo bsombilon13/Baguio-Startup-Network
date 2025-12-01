@@ -333,52 +333,12 @@ export const MOCK_ANNOUNCEMENTS: Announcement[] = [
 export const MOCK_RESOURCES: Resource[] = [
   {
     id: 'r1',
-    title: 'Baguio Startup Ecosystem Report 2023',
-    description: 'A comprehensive analysis of the local startup landscape, key players, and investment trends in the Cordillera Administrative Region.',
+    title: 'CAR Ecosystem Mapping Report 2022-2025',
+    description: 'A comprehensive mapping of the startup ecosystem in the Cordillera Administrative Region.',
     type: 'Report',
-    format: 'PDF',
-    size: '12.5 MB',
-    downloadUrl: '#',
-    dateAdded: new Date('2023-11-15')
-  },
-  {
-    id: 'r2',
-    title: 'Startup Grant Application Template',
-    description: 'Standardized template for applying to local government grants and accelerator programs.',
-    type: 'Template',
-    format: 'DOCX',
-    size: '245 KB',
-    downloadUrl: '#',
-    dateAdded: new Date('2023-12-01')
-  },
-  {
-    id: 'r3',
-    title: 'Cordillera Innovation Strategy',
-    description: 'Strategic roadmap for innovation and technology development in the region for 2024-2028.',
-    type: 'Report',
-    format: 'PDF',
-    size: '5.2 MB',
-    downloadUrl: '#',
-    dateAdded: new Date('2024-01-10')
-  },
-  {
-    id: 'r4',
-    title: 'Founder\'s Handbook',
-    description: 'Essential guide for first-time founders covering legal registration, tax compliance, and IP protection in the Philippines.',
-    type: 'Guide',
-    format: 'PDF',
-    size: '3.8 MB',
-    downloadUrl: '#',
-    dateAdded: new Date('2024-02-20')
-  },
-  {
-    id: 'r5',
-    title: 'Investor Pitch Deck Template',
-    description: 'A proven 12-slide pitch deck structure to help you raise your pre-seed or seed round.',
-    type: 'Template',
-    format: 'PPTX',
-    size: '4.1 MB',
-    downloadUrl: '#',
-    dateAdded: new Date('2024-03-05')
+    format: 'WEB',
+    size: 'N/A',
+    downloadUrl: 'https://heyzine.com/flip-book/7acb10b7ce.html#page/1',
+    dateAdded: new Date()
   }
 ];
