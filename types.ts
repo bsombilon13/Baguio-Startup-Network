@@ -6,7 +6,7 @@ export interface Startup {
   logoUrl: string;
   facebookUrl?: string;
   websiteUrl?: string;
-  category: 'Community' | 'Startup' | 'Accelerator' | 'Non-Profit' | 'Government' | 'Incubator';
+  category: 'Community' | 'Startup' | 'Accelerator' | 'Non-Profit' | 'Government' | 'Incubator' | 'MSME';
 }
 
 export interface Event {

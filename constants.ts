@@ -144,7 +144,7 @@ export const MOCK_STARTUPS: Startup[] = [
     description: 'Promoting the love for Cordilleran culture and arts.',
     logoUrl: '',
     facebookUrl: 'https://www.facebook.com/layaddikordilyera',
-    category: 'Startup',
+    category: 'MSME',
   },
   {
     id: '23',

@@ -122,7 +122,7 @@ const Ecosystem: React.FC = () => {
           />
         </div>
         <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
-          {['All', 'Community', 'Startup', 'Government', 'Incubator', 'Non-Profit'].map(cat => (
+          {['All', 'Community', 'Startup', 'Government', 'Incubator', 'MSME', 'Non-Profit'].map(cat => (
             <button
               key={cat}
               onClick={() => setCategoryFilter(cat)}
@@ -211,6 +211,7 @@ const StartupCard: React.FC<StartupCardProps> = ({ startup, onViewProfile }) => 
             startup.category === 'Startup' ? 'bg-fun-pink/10 text-fun-pink' :
             startup.category === 'Government' ? 'bg-blue-600/10 text-blue-600' :
             startup.category === 'Incubator' ? 'bg-purple-600/10 text-purple-600' :
+            startup.category === 'MSME' ? 'bg-orange-600/10 text-orange-600' :
             'bg-fun-yellow/10 text-fun-yellow'
          }`}>
              {startup.category}
