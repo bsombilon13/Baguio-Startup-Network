@@ -301,7 +301,29 @@ const addDays = (date: Date, days: number) => {
     return result;
 }
 
-export const MOCK_EVENTS: Event[] = [];
+export const MOCK_EVENTS: Event[] = [
+  {
+    id: 'e1',
+    title: 'Startup Community Mixer',
+    date: addDays(today, 5), 
+    endDate: addDays(today, 5),
+    description: 'Join the Baguio Startup Network for an evening of connection and collaboration. Meet local founders, investors, and creatives in this open networking event. Check the link for full details: https://www.facebook.com/share/p/16vPKebp52/',
+    location: 'Baguio City',
+    category: 'Meetup',
+    imageUrl: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop'
+  },
+  {
+    id: 'e2',
+    title: 'Cloud and DevOps Basics',
+    date: new Date('2025-12-10T13:00:00'),
+    endDate: new Date('2025-12-10T17:00:00'),
+    description: "This short course provides an introductory overview of cloud computing and DevOps principles. Participants will learn about service models (laaS, PaaS, SaaS), the advantages of cloud adoption, and the collaborative practices that define DevOps. The session supports DICT's Cloud First Policy and aims to build foundational awareness of cloud infrastructure and deployment workflows relevant to government, business, and startups.",
+    location: 'Zoom',
+    category: 'Workshop',
+    imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop',
+    registrationLink: 'https://bit.ly/CDOBasics-Register'
+  }
+];
 
 export const MOCK_ANNOUNCEMENTS: Announcement[] = [
   {

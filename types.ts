@@ -18,6 +18,7 @@ export interface Event {
   location: string;
   category: 'Meetup' | 'Workshop' | 'Pitch' | 'Social';
   imageUrl?: string;
+  registrationLink?: string;
 }
 
 export interface Announcement {

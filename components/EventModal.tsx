@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Event } from '../types';
 import { X, MapPin, Calendar, Share2, Clock, CalendarPlus, ExternalLink, Download } from 'lucide-react';
@@ -33,9 +34,13 @@ const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
     }
   };
 
-  const handleRSVP = () => {
-      setRsvpState('success');
-      setTimeout(() => setRsvpState('idle'), 3000);
+  const handleRegister = () => {
+      if (event.registrationLink) {
+          window.open(event.registrationLink, '_blank');
+      } else {
+          setRsvpState('success');
+          setTimeout(() => setRsvpState('idle'), 3000);
+      }
   };
 
   // Calendar Helpers
@@ -139,7 +144,7 @@ const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
 
           <div className="flex gap-2 mt-auto flex-wrap">
             <button 
-                onClick={handleRSVP}
+                onClick={handleRegister}
                 disabled={rsvpState === 'success'}
                 className={`flex-1 py-3 px-4 font-bold rounded-xl transition-all shadow-lg flex items-center justify-center gap-2 ${
                     rsvpState === 'success' 
@@ -147,7 +152,7 @@ const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
                     : 'bg-slate-900 text-white hover:bg-slate-800'
                 }`}
             >
-              {rsvpState === 'success' ? 'You are going!' : 'RSVP Now'}
+              {rsvpState === 'success' ? 'Registered!' : 'Register'}
             </button>
             
             <div className="flex gap-2">
