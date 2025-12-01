@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Event } from '../types';
 import { Calendar as CalendarIcon, Clock, MapPin, Twitter, Linkedin, Facebook, CalendarPlus, Download, ExternalLink } from 'lucide-react';
@@ -109,8 +110,12 @@ const EventCard: React.FC<EventCardProps> = ({ event, onClick }) => {
     setShowCalendarMenu(false);
   };
 
+  // Check if location is virtual (Zoom, Online, etc.)
+  const isVirtual = event.location.toLowerCase().includes('zoom') || event.location.toLowerCase().includes('online');
+
   const openMap = (e: React.MouseEvent) => {
     e.stopPropagation();
+    if (isVirtual) return;
     const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`;
     window.open(mapUrl, '_blank');
   };
@@ -138,12 +143,12 @@ const EventCard: React.FC<EventCardProps> = ({ event, onClick }) => {
                     {timeDisplay}
                 </div>
                 <div 
-                    onClick={openMap}
-                    className="flex items-center gap-1 hover:text-brand-accent cursor-pointer transition-colors group/map"
-                    title="Open in Google Maps"
+                    onClick={isVirtual ? undefined : openMap}
+                    className={`flex items-center gap-1 transition-colors group/map ${isVirtual ? '' : 'hover:text-brand-accent cursor-pointer'}`}
+                    title={isVirtual ? '' : "Open in Google Maps"}
                 >
-                    <MapPin className="w-4 h-4 group-hover/map:scale-110 transition-transform" />
-                    <span className="group-hover/map:underline decoration-dotted underline-offset-2">{event.location}</span>
+                    <MapPin className={`w-4 h-4 ${isVirtual ? '' : 'group-hover/map:scale-110 transition-transform'}`} />
+                    <span className={isVirtual ? '' : "group-hover/map:underline decoration-dotted underline-offset-2"}>{event.location}</span>
                 </div>
             </div>
         </div>

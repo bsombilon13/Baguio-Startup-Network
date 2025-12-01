@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Event } from '../types';
-import { X, MapPin, Calendar, Share2, Clock, CalendarPlus, ExternalLink, Download } from 'lucide-react';
+import { X, MapPin, Calendar, Share2, Clock, CalendarPlus, ExternalLink, Download, Check } from 'lucide-react';
 
 interface EventModalProps {
   event: Event | null;
@@ -10,27 +10,36 @@ interface EventModalProps {
 
 const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
   const [rsvpState, setRsvpState] = React.useState<'idle' | 'success'>('idle');
+  const [shareState, setShareState] = React.useState<'idle' | 'copied'>('idle');
 
   React.useEffect(() => {
       setRsvpState('idle');
+      setShareState('idle');
   }, [event]);
 
   if (!event) return null;
 
   const handleShare = () => {
+    const url = window.location.href;
+    const text = event.title;
+
     if (navigator.share) {
       navigator.share({
         title: event.title,
         text: event.description,
-        url: window.location.href,
+        url: url,
       })
       .then(() => console.log('Successful share'))
       .catch((error) => console.log('Error sharing', error));
     } else {
-        // Fallback share logic
-        const url = encodeURIComponent(window.location.href);
-        const text = encodeURIComponent(event.title);
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank');
+        // Fallback: Copy to clipboard which is robust on desktop
+        navigator.clipboard.writeText(url).then(() => {
+            setShareState('copied');
+            setTimeout(() => setShareState('idle'), 2000);
+        }).catch(() => {
+             // Ultimate fallback if clipboard fails
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`, '_blank');
+        });
     }
   };
 
@@ -75,6 +84,9 @@ const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
     document.body.removeChild(link);
   };
 
+  // Check virtual
+  const isVirtual = event.location.toLowerCase().includes('zoom') || event.location.toLowerCase().includes('online');
+  
   // Google Maps URL
   const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`;
 
@@ -127,15 +139,23 @@ const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
                  {event.endDate ? ` - ${event.endDate.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}` : ''}
                </span>
             </div>
-            <a 
-                href={mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start text-slate-700 hover:text-brand-accent transition-colors group cursor-pointer"
-            >
-               <MapPin className="w-5 h-5 mr-3 text-fun-teal mt-0.5 group-hover:scale-110 transition-transform" />
-               <span className="font-medium underline decoration-dotted underline-offset-4">{event.location}</span>
-            </a>
+            
+            {isVirtual ? (
+                <div className="flex items-start text-slate-700">
+                   <MapPin className="w-5 h-5 mr-3 text-fun-teal mt-0.5" />
+                   <span className="font-medium">{event.location}</span>
+                </div>
+            ) : (
+                <a 
+                    href={mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start text-slate-700 hover:text-brand-accent transition-colors group cursor-pointer"
+                >
+                   <MapPin className="w-5 h-5 mr-3 text-fun-teal mt-0.5 group-hover:scale-110 transition-transform" />
+                   <span className="font-medium underline decoration-dotted underline-offset-4">{event.location}</span>
+                </a>
+            )}
           </div>
 
           <p className="text-slate-500 leading-relaxed mb-8">
@@ -165,10 +185,15 @@ const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
                 </button>
                 <button 
                     onClick={handleShare}
-                    className="p-3 bg-slate-100 text-slate-600 rounded-xl hover:bg-slate-200 transition-colors border border-slate-200"
+                    className="p-3 bg-slate-100 text-slate-600 rounded-xl hover:bg-slate-200 transition-colors border border-slate-200 relative"
                     title="Share Event"
                 >
-                    <Share2 className="w-5 h-5" />
+                    {shareState === 'copied' ? <Check className="w-5 h-5 text-green-600" /> : <Share2 className="w-5 h-5" />}
+                    {shareState === 'copied' && (
+                        <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] px-2 py-1 rounded shadow-lg whitespace-nowrap">
+                            Copied!
+                        </span>
+                    )}
                 </button>
             </div>
           </div>
