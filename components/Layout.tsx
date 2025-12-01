@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { Home, Users, Calendar, Megaphone, Plus } from 'lucide-react';
+import { Home, Users, Calendar, Megaphone, Plus, BookOpen } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -15,6 +16,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     { path: '/', icon: Home, label: 'Hub' },
     { path: '/ecosystem', icon: Users, label: 'Ecosystem' },
     { path: '/events', icon: Calendar, label: 'Events' },
+    { path: '/resources', icon: BookOpen, label: 'Resources' },
     { path: '/funding', icon: Megaphone, label: 'Announcements' },
   ];
 

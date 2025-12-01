@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
@@ -5,6 +6,7 @@ import Home from './pages/Home';
 import Ecosystem from './pages/Ecosystem';
 import Events from './pages/Events';
 import Funding from './pages/Funding';
+import Resources from './pages/Resources';
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/ecosystem" element={<Ecosystem />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/resources" element={<Resources />} />
           <Route path="/funding" element={<Funding />} />
         </Routes>
       </Layout>

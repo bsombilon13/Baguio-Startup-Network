@@ -1,5 +1,5 @@
 
-import { Startup, Event, Announcement } from './types';
+import { Startup, Event, Announcement, Resource } from './types';
 
 export const MOCK_STARTUPS: Startup[] = [
   {
@@ -19,28 +19,12 @@ export const MOCK_STARTUPS: Startup[] = [
     category: 'Community',
   },
   {
-    id: '3',
-    name: 'Community Member (6157)',
-    description: 'An emerging player in the local ecosystem.',
-    logoUrl: '',
-    facebookUrl: 'https://www.facebook.com/profile.php?id=61578216141652',
-    category: 'Startup',
-  },
-  {
     id: '4',
     name: 'AWMA SLU-SC',
     description: 'Academic and student organization focusing on management and accountancy at SLU.',
     logoUrl: '',
     facebookUrl: 'https://www.facebook.com/AWMA.SLUSC',
     category: 'Community',
-  },
-  {
-    id: '5',
-    name: 'Startup Profile (6157)',
-    description: 'Innovating locally in the Cordilleras.',
-    logoUrl: '',
-    facebookUrl: 'https://www.facebook.com/profile.php?id=61572716963985',
-    category: 'Startup',
   },
   {
     id: '6',
@@ -57,14 +41,6 @@ export const MOCK_STARTUPS: Startup[] = [
     logoUrl: '',
     facebookUrl: 'https://www.facebook.com/cegpcordi',
     category: 'Non-Profit',
-  },
-  {
-    id: '8',
-    name: 'Organization (6156)',
-    description: 'Contributing to the vibrant tapestry of the Baguio community.',
-    logoUrl: '',
-    facebookUrl: 'https://www.facebook.com/profile.php?id=61567306167712',
-    category: 'Community',
   },
   {
     id: '9',
@@ -88,7 +64,7 @@ export const MOCK_STARTUPS: Startup[] = [
     description: 'Department of Information and Communications Technology - CAR Field Office.',
     logoUrl: '',
     facebookUrl: 'https://www.facebook.com/dict.car',
-    category: 'Accelerator',
+    category: 'Government',
   },
   {
     id: '12',
@@ -96,15 +72,7 @@ export const MOCK_STARTUPS: Startup[] = [
     description: 'Department of Science and Technology - Cordillera Administrative Region.',
     logoUrl: '',
     facebookUrl: 'https://www.facebook.com/dostcar.gov.ph',
-    category: 'Accelerator',
-  },
-  {
-    id: '13',
-    name: 'Ecosystem Member (6157)',
-    description: 'Joining forces to build a stronger startup network.',
-    logoUrl: '',
-    facebookUrl: 'https://www.facebook.com/profile.php?id=61576826433382',
-    category: 'Startup',
+    category: 'Government',
   },
   {
     id: '14',
@@ -112,7 +80,7 @@ export const MOCK_STARTUPS: Startup[] = [
     description: 'Department of Trade and Industry - Cordillera Administrative Region.',
     logoUrl: '',
     facebookUrl: 'https://www.facebook.com/DTI.CordilleraAdministrativeRegion',
-    category: 'Accelerator',
+    category: 'Government',
   },
   {
     id: '15',
@@ -152,7 +120,7 @@ export const MOCK_STARTUPS: Startup[] = [
     description: 'ICT Literacy and Competency Development Bureau - Cordillera.',
     logoUrl: '',
     facebookUrl: 'https://www.facebook.com/dict.cordillera.ilcdb',
-    category: 'Accelerator',
+    category: 'Government',
   },
   {
     id: '20',
@@ -160,7 +128,7 @@ export const MOCK_STARTUPS: Startup[] = [
     description: 'ICT Industry Development Bureau - CAR.',
     logoUrl: '',
     facebookUrl: 'https://www.facebook.com/car.iidb.dict',
-    category: 'Accelerator',
+    category: 'Government',
   },
   {
     id: '21',
@@ -184,7 +152,7 @@ export const MOCK_STARTUPS: Startup[] = [
     description: 'City Mayor\'s Office - Management Information and Technology Division.',
     logoUrl: '',
     facebookUrl: 'https://www.facebook.com/cmobaguio.mitd',
-    category: 'Accelerator',
+    category: 'Government',
   },
   {
     id: '24',
@@ -193,6 +161,135 @@ export const MOCK_STARTUPS: Startup[] = [
     logoUrl: '',
     facebookUrl: 'https://www.facebook.com/officialparapo',
     category: 'Startup',
+  },
+  // New Entries
+  {
+    id: '30',
+    name: 'Rise Benguet Project',
+    description: 'A community initiative dedicated to uplifting the Benguet province.',
+    logoUrl: '',
+    facebookUrl: 'https://www.facebook.com/risebenguetproject',
+    category: 'Community',
+  },
+  {
+    id: '31',
+    name: 'SIGLAT',
+    description: 'Empowering innovation and startups.',
+    logoUrl: '',
+    facebookUrl: 'https://www.facebook.com/siglat',
+    category: 'Incubator',
+  },
+  {
+    id: '32',
+    name: 'Sirib Center',
+    description: 'A hub for youth development and creative incubation.',
+    logoUrl: '',
+    facebookUrl: 'https://www.facebook.com/siribcenter',
+    category: 'Incubator',
+  },
+  {
+    id: '33',
+    name: 'SRV Pinoy',
+    description: 'Innovative solutions for the Filipino community.',
+    logoUrl: '',
+    facebookUrl: 'https://www.facebook.com/srvpinoy',
+    category: 'Startup',
+  },
+  {
+    id: '34',
+    name: 'TARAKI CAR',
+    description: 'Technology and innovation incubator for the Cordillera region.',
+    logoUrl: '',
+    facebookUrl: 'https://www.facebook.com/tarakicar',
+    category: 'Incubator',
+  },
+  {
+    id: '35',
+    name: 'Tamawan Village',
+    description: 'A center for arts, culture, and creative startups in Baguio.',
+    logoUrl: '',
+    facebookUrl: 'https://www.facebook.com/TamawanOfficial',
+    category: 'Startup',
+  },
+  {
+    id: '36',
+    name: 'Tarana AI',
+    description: 'Artificial Intelligence solutions for modern problems.',
+    logoUrl: '',
+    facebookUrl: 'https://www.facebook.com/TaranaAI',
+    category: 'Startup',
+  },
+  {
+    id: '37',
+    name: 'Tech4ED DTC CAR',
+    description: 'Providing access to technology and digital literacy.',
+    logoUrl: '',
+    facebookUrl: 'https://www.facebook.com/tech4eddtc.car',
+    category: 'Government',
+  },
+  {
+    id: '38',
+    name: 'Tingi Station',
+    description: 'Sustainable retail solutions for the community.',
+    logoUrl: '',
+    facebookUrl: 'https://www.facebook.com/tingistation',
+    category: 'Startup',
+  },
+  {
+    id: '39',
+    name: 'UC InTTO',
+    description: 'University of the Cordilleras Innovation and Technology Transfer Office.',
+    logoUrl: '',
+    facebookUrl: 'https://www.facebook.com/UCInTTO',
+    category: 'Incubator',
+  },
+  {
+    id: '40',
+    name: 'UP Baguio SILBI TBI',
+    description: 'UP Baguio Technology Business Incubator - Fostering innovation.',
+    logoUrl: '',
+    facebookUrl: 'https://www.facebook.com/upbsilbitbi',
+    category: 'Incubator',
+  },
+  {
+    id: '41',
+    name: 'Vivistop Baguio',
+    description: 'A creative space and community for young makers.',
+    logoUrl: '',
+    facebookUrl: 'https://www.facebook.com/vivistop.baguio',
+    category: 'Community',
+  },
+  {
+    id: '42',
+    name: 'Women Techmakers Baguio',
+    description: 'Building a world where all women can thrive in tech.',
+    logoUrl: '',
+    facebookUrl: 'https://www.facebook.com/WTMBaguio',
+    category: 'Community',
+  },
+  {
+    id: '43',
+    name: 'YES DES CNS BSU',
+    description: 'Young Entrepreneurs Society - BSU Chapter.',
+    logoUrl: '',
+    facebookUrl: 'https://www.facebook.com/yes.des.cns.bsu',
+    category: 'Community',
+  },
+  {
+    id: '44',
+    name: 'Yuman Kaili',
+    description: 'Celebrating local culture through enterprise.',
+    logoUrl: '',
+    facebookUrl: 'https://www.facebook.com/YumanKaili',
+    category: 'Startup',
+  },
+  {
+    id: '45',
+    name: 'Zero Waste Baguio',
+    description: 'Advocating for a sustainable and zero-waste city.',
+    logoUrl: '',
+    facebookUrl: 'https://www.facebook.com/zwbaguio',
+    category: 'Non-Profit',
   }
 ];
 
@@ -230,5 +327,58 @@ export const MOCK_ANNOUNCEMENTS: Announcement[] = [
     content: 'All community members now get $1000 in cloud credits. Claim yours today via the member portal.',
     type: 'News',
     datePosted: addDays(today, -5),
+  }
+];
+
+export const MOCK_RESOURCES: Resource[] = [
+  {
+    id: 'r1',
+    title: 'Baguio Startup Ecosystem Report 2023',
+    description: 'A comprehensive analysis of the local startup landscape, key players, and investment trends in the Cordillera Administrative Region.',
+    type: 'Report',
+    format: 'PDF',
+    size: '12.5 MB',
+    downloadUrl: '#',
+    dateAdded: new Date('2023-11-15')
+  },
+  {
+    id: 'r2',
+    title: 'Startup Grant Application Template',
+    description: 'Standardized template for applying to local government grants and accelerator programs.',
+    type: 'Template',
+    format: 'DOCX',
+    size: '245 KB',
+    downloadUrl: '#',
+    dateAdded: new Date('2023-12-01')
+  },
+  {
+    id: 'r3',
+    title: 'Cordillera Innovation Strategy',
+    description: 'Strategic roadmap for innovation and technology development in the region for 2024-2028.',
+    type: 'Report',
+    format: 'PDF',
+    size: '5.2 MB',
+    downloadUrl: '#',
+    dateAdded: new Date('2024-01-10')
+  },
+  {
+    id: 'r4',
+    title: 'Founder\'s Handbook',
+    description: 'Essential guide for first-time founders covering legal registration, tax compliance, and IP protection in the Philippines.',
+    type: 'Guide',
+    format: 'PDF',
+    size: '3.8 MB',
+    downloadUrl: '#',
+    dateAdded: new Date('2024-02-20')
+  },
+  {
+    id: 'r5',
+    title: 'Investor Pitch Deck Template',
+    description: 'A proven 12-slide pitch deck structure to help you raise your pre-seed or seed round.',
+    type: 'Template',
+    format: 'PPTX',
+    size: '4.1 MB',
+    downloadUrl: '#',
+    dateAdded: new Date('2024-03-05')
   }
 ];

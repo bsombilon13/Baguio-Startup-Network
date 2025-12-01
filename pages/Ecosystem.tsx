@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { MOCK_STARTUPS } from '../constants';
 import { Search, Facebook, ExternalLink, Plus } from 'lucide-react';
@@ -121,7 +122,7 @@ const Ecosystem: React.FC = () => {
           />
         </div>
         <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
-          {['All', 'Community', 'Startup', 'Accelerator', 'Non-Profit'].map(cat => (
+          {['All', 'Community', 'Startup', 'Government', 'Incubator', 'Non-Profit'].map(cat => (
             <button
               key={cat}
               onClick={() => setCategoryFilter(cat)}
@@ -208,6 +209,8 @@ const StartupCard: React.FC<StartupCardProps> = ({ startup, onViewProfile }) => 
          <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-md mb-2 inline-block ${
             startup.category === 'Community' ? 'bg-fun-teal/10 text-fun-teal' :
             startup.category === 'Startup' ? 'bg-fun-pink/10 text-fun-pink' :
+            startup.category === 'Government' ? 'bg-blue-600/10 text-blue-600' :
+            startup.category === 'Incubator' ? 'bg-purple-600/10 text-purple-600' :
             'bg-fun-yellow/10 text-fun-yellow'
          }`}>
              {startup.category}

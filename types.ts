@@ -6,7 +6,7 @@ export interface Startup {
   logoUrl: string;
   facebookUrl?: string;
   websiteUrl?: string;
-  category: 'Community' | 'Startup' | 'Accelerator' | 'Non-Profit';
+  category: 'Community' | 'Startup' | 'Accelerator' | 'Non-Profit' | 'Government' | 'Incubator';
 }
 
 export interface Event {
@@ -28,4 +28,15 @@ export interface Announcement {
   datePosted: Date;
   deadline?: Date;
   ctaLink?: string;
+}
+
+export interface Resource {
+  id: string;
+  title: string;
+  description: string;
+  type: 'Report' | 'Template' | 'Guide' | 'Presentation';
+  format: 'PDF' | 'DOCX' | 'PPTX' | 'XLSX';
+  size: string;
+  downloadUrl: string;
+  dateAdded: Date;
 }
