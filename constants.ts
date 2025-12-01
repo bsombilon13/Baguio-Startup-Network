@@ -315,32 +315,7 @@ export const MOCK_EVENTS: Event[] = [
   }
 ];
 
-export const MOCK_ANNOUNCEMENTS: Announcement[] = [
-  {
-    id: 'a1',
-    title: 'Seed Fund Batch 5 Open',
-    content: 'We are accepting applications for our Q3 Seed Fund cohort. Up to $50k in equity-free funding for qualified startups in the region.',
-    type: 'Funding',
-    datePosted: new Date(),
-    deadline: addDays(today, 30),
-    ctaLink: '#'
-  },
-  {
-    id: 'a2',
-    title: 'Call for Mentors',
-    content: 'Experienced founders wanted to mentor our upcoming accelerator batch. Give back to the community!',
-    type: 'Opportunity',
-    datePosted: addDays(today, -2),
-    ctaLink: '#'
-  },
-  {
-    id: 'a3',
-    title: 'Partnership with Cloud Giant',
-    content: 'All community members now get $1000 in cloud credits. Claim yours today via the member portal.',
-    type: 'News',
-    datePosted: addDays(today, -5),
-  }
-];
+export const MOCK_ANNOUNCEMENTS: Announcement[] = [];
 
 export const MOCK_RESOURCES: Resource[] = [
   {
